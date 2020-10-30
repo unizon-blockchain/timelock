@@ -1,0 +1,259 @@
+// @import '~ant-design-vue/dist/antd.less'; // 引入官方提供的 less 样式入口文件
+
+@import '~/node_modules/ant-design-vue/lib/button/style/index.less';
+@import '~/node_modules/ant-design-vue/lib/steps/style/index.less';
+@import '~/node_modules/ant-design-vue/lib/form/style/index.less';
+@import '~/node_modules/ant-design-vue/lib/input/style/index.less';
+@import '~/node_modules/ant-design-vue/lib/select/style/index.less';
+@import '~/node_modules/ant-design-vue/lib/progress/style/index.less';
+@import '~/node_modules/ant-design-vue/lib/avatar/style/index.less';
+@import '~/node_modules/ant-design-vue/lib/table/style/index.less';
+@import '~/node_modules/ant-design-vue/lib/dropdown/style/index.less';
+@import '~/node_modules/ant-design-vue/lib/menu/style/index.less';
+@import '~/node_modules/ant-design-vue/lib/message/style/index.less';
+@import '~/node_modules/ant-design-vue/lib/modal/style/index.less';
+@import '~/node_modules/ant-design-vue/lib/form-model/style/index.less';
+@import '~/node_modules/ant-design-vue/lib/drawer/style/index.less';
+@import '~/node_modules/ant-design-vue/lib/slider/style/index.less';
+@import '~/node_modules/ant-design-vue/lib/switch/style/index.less';
+@import '~/node_modules/ant-design-vue/lib/spin/style/index.less';
+@import '~/node_modules/ant-design-vue/lib/input-number/style/index.less';
+@import '~/node_modules/ant-design-vue/lib/notification/style/index.less';
+@import '~/node_modules/ant-design-vue/lib/skeleton/style/index.less';
+@import '~/node_modules/ant-design-vue/lib/tooltip/style/index.less';
+@import '~/node_modules/ant-design-vue/lib/collapse/style/index.less';
+
+.ant-skeleton.ant-skeleton-active
+  .ant-skeleton-content
+  .ant-skeleton-paragraph
+  > li {
+  background: linear-gradient(90deg, #242424 65%, #262626 47%, #2e2e2e 83%);
+  background-size: 400% 100%;
+  -webkit-animation: ant-skeleton-loading 1.4s ease infinite;
+  animation: ant-skeleton-loading 1.4s ease infinite;
+}
+
+html,
+body {
+  /* 苹方-简 中黑体 */
+  font-family: PingFangSC-Medium, sans-serif;
+  font-size: 15px;
+  word-spacing: 1px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  overflow: auto;
+  background-color: #080808;
+}
+
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default padding */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a class attribute */
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  margin: 0;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Natural flow and rhythm in articles by default */
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* 自定义滚动条（chrome） */
+.z-scroll::-webkit-scrollbar {
+  width: 6px;
+  height: 4px;
+  background: #eeeeee;
+  /* 整个滚条背景 */
+}
+
+.z-scroll::-webkit-scrollbar-thumb {
+  border-radius: 0px;
+  background: #bbbbbb;
+  /* 滚条内嵌颜色 */
+}
+
+.z-scroll::-webkit-scrollbar-button {
+  background-color: #bbbbbb;
+  width: 0;
+  height: 0;
+  /* 两边端按钮颜色 */
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 4px;
+  background: #eeeeee;
+  /* 整个滚条背景 */
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 0px;
+  background: #bbbbbb;
+  /* 滚条内嵌颜色 */
+}
+
+*::-webkit-scrollbar-button {
+  background-color: #bbbbbb;
+  width: 0;
+  height: 0;
+  /* 两边端按钮颜色 */
+}
+
+/* 布局控制 */
+.is-pc {
+  display: block;
+}
+.is-mobile {
+  display: none;
+}
+
+
+@media only screen and (max-width: 880px) {
+  .is-pc {
+    display: none;
+  }
+  .is-mobile {
+    display: block;
+  }
+  .t-default-main--padding {
+    padding: 0 !important;
+  }
+  .ant-modal {
+    width: 90% !important;
+  }
+}
+/* ******** */
+
+/* antd-reload */
+.ant-table-placeholder {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.6);
+  border: none;
+}
+
+.ant-select-dropdown-menu {
+  border-radius: 2px;
+
+  .ant-select-dropdown-menu-item {
+    background-color: #000000;
+    color: #ffffff;
+    font-size: 14px;
+    box-sizing: border-box;
+    padding: 8px 12px;
+  }
+  .ant-select-dropdown-menu-item:active {
+    background-color: rgba(0, 0, 0, 0.9);
+  }
+  .ant-select-dropdown-menu-item:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+  }
+  .ant-select-dropdown-menu-item-selected {
+    background-color: rgba(0, 0, 0, 0.9);
+  }
+}
+
+.ant-dropdown-menu {
+  .ant-dropdown-menu-item {
+    background-color: #000000;
+    color: #ffffff;
+    font-size: 14px;
+    box-sizing: border-box;
+    padding: 8px 12px;
+  }
+  .ant-dropdown-menu-item:active {
+    background-color: rgba(0, 0, 0, 0.9);
+  }
+  .ant-dropdown-menu-item:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+  }
+}
+
+.ant-btn-primary {
+  color: #565656 !important;
+}
+
+/* =========================== */

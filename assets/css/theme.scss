@@ -1,0 +1,10 @@
+/* mixin */
+@function vpx($px) {
+  // @return $px / (19.2) * 1vw;
+  @return $px * 0.9px;
+}
+
+@function rpx($px) {
+  @return $px  / (7.5) * 1vw;
+  // @return $px  / 2 * 1px;
+}

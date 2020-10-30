@@ -1,0 +1,7 @@
+<template>
+  <div class="page-container">
+    
+  </div>
+</template>
+<script scoped src="./#path#.ts"></script>
+<style lang="scss" src="./#path#.scss"></style>

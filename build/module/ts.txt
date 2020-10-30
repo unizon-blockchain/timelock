@@ -1,0 +1,8 @@
+import { Vue, Component } from 'vue-property-decorator'
+
+@Component
+class #component# extends Vue {
+  // props
+}
+
+export default #component#
