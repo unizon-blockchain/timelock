@@ -56,11 +56,17 @@
           </div>
           <div slot="status" slot-scope="item">
             <a-button
-              type="primary"
+              type="link"
               @click="handleVisibleTransactionDetail(item)"
             >
-              {{ item.isQueued ? 'Pending' : 'Finished' }}
+              <span class="btn-link-text">{{ item.isQueued ? 'Pending' : 'Finished' }}</span>
             </a-button>
+            <a-button
+              type="link"
+              @click="handleViewOnEtherScan(item)"
+            >
+              <span class="btn-link-text">{{ 'View on etherscan' }}</span>
+            </a-button>            
           </div>
         </a-table>
       </div>
@@ -175,6 +181,10 @@ export default class Index extends Vue {
     this.visible = true
   }
 
+  private handleViewOnEtherScan(item: ITimelockTransaction) {
+    window.open(this.$getEtherScanUrl(item.hash));
+  }
+
   private async connectWallet() {
     this.$useConnectWallet()
   }
@@ -211,6 +221,10 @@ export default class Index extends Vue {
 .p-index {
   .p-index__list {
     box-sizing: border-box;
+  }
+
+  .btn-link-text {
+    text-decoration: underline!important;
   }
 }
 </style>

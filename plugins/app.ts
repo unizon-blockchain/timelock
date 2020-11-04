@@ -6,6 +6,7 @@ declare module 'vue/types/vue' {
     $useEthereumProvider(callback: any): void;
     $ethereumProvider: EthereumProvider;
     $useConnectWallet(): void;
+    $getEtherScanUrl(txHash: any): string;
   }
 }
 
@@ -40,7 +41,23 @@ export default ({ app, store }: any) => {
 
       useConnectWallet();
     } catch (e) {}
-  };
+  }
+
+  Vue.prototype.$getEtherScanUrl = function(txHash: any): string {
+    let res : string = `https://etherscan.io/tx/${txHash}`;
+    
+    if(3 == ethereumProvider.chainId) {
+      res = `https://ropsten.etherscan.io/tx/${txHash}`;
+    }
+    if(4 == ethereumProvider.chainId) {
+      res = `https://rinkeby.etherscan.io/tx/${txHash}`;
+    }
+    if(42 == ethereumProvider.chainId) {
+      res = `https://kovan.etherscan.io/tx/${txHash}`;
+    }
+
+    return res;
+  }
 
  
 };
