@@ -8,7 +8,7 @@
           v-if="!$store.state.account"
           >{{ 'Connect Wallet' }}</a-button
         >
-        <span v-else>Wallet Address: {{ $store.state.account }}</span>
+        <span v-else>Wallet Address: {{ $store.state.account }}<a-tag class="network-tag" color="red" v-if="'' !== networkName">{{networkName}}</a-tag></span>
       </template>
       <a-button type="primary" @click="pushNewTransaction()">{{
         'New Transaction'
@@ -106,6 +106,7 @@ export default class Index extends Vue {
 
   private visible: boolean = false
   private transactionDetailItem: ITimelockTransaction = {}
+  private networkName: string = '';
 
   private columns: Array<any> = [
     {
@@ -141,6 +142,7 @@ export default class Index extends Vue {
   ]
 
   private created() {
+    this.networkName = this.$getNetworkName();
     this.getTransactionList()
   }
 
@@ -210,6 +212,7 @@ export default class Index extends Vue {
   @Watch('$store.state.chainId', { immediate: false })
   private onChangeChainId(val: string) {
     if (val) {
+      this.networkName = this.$getNetworkName();
       this.timelock.setAddress()
       this.getTransactionList()
     }
@@ -225,6 +228,13 @@ export default class Index extends Vue {
 
   .btn-link-text {
     text-decoration: underline!important;
+  }
+
+  .network-tag {
+    margin-left: 6px;
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: capitalize;
   }
 }
 </style>

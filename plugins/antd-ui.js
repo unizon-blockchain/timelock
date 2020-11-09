@@ -26,7 +26,8 @@ import {
   Popconfirm,
   Collapse,
   message,
-  notification
+  notification,
+  Tag
 } from 'ant-design-vue'
 
 import 'ant-design-vue/lib/row/style'
@@ -59,6 +60,7 @@ Vue.use(InputNumber)
 Vue.use(Tooltip)
 Vue.use(Popconfirm)
 Vue.use(Collapse)
+Vue.use(Tag)
 
 Vue.prototype.$message = message
 Vue.prototype.$notification = notification

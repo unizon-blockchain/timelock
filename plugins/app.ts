@@ -7,6 +7,7 @@ declare module 'vue/types/vue' {
     $ethereumProvider: EthereumProvider;
     $useConnectWallet(): void;
     $getEtherScanUrl(txHash: any): string;
+    $getNetworkName(): string;
   }
 }
 
@@ -54,6 +55,29 @@ export default ({ app, store }: any) => {
     }
     if(42 == ethereumProvider.chainId) {
       res = `https://kovan.etherscan.io/tx/${txHash}`;
+    }
+
+    return res;
+  }
+
+  Vue.prototype.$getNetworkName = function() {
+    let res : string = '';
+    switch(ethereumProvider.chainId) {
+      case 1: 
+        res = '';
+        break;
+      case 3:
+        res = 'ropsten';
+        break;
+      case 4:
+        res = 'rinkeby';
+        break;
+      case 42:
+        res = 'kovan';
+        break;
+      default:
+        res = 'unknown';
+        break;
     }
 
     return res;
