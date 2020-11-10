@@ -56,12 +56,13 @@ import ErrorHelper from '~/timelock/error'
 @Component
 export default class Index extends Vue {
   private tokenContract: ITokenContract | null = {}
-  private timelock: TimelockHelper = new TimelockHelper(this.$ethereumProvider)
+  private timelock!: TimelockHelper ;
   private dataStorage: DataStorage = new DataStorage()
   private isLoading: boolean = false
   private disabledQueue: boolean = true
 
   private created() {
+    this.timelock = new TimelockHelper(this.$ethereumProvider)
     this.tokenContract = this.dataStorage.tempTokenContract
     this.getAdminAddress()
   }

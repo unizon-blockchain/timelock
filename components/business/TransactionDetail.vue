@@ -92,7 +92,6 @@ import ErrorHelper from '~/timelock/error'
   name: 'TransactionDetail',
 })
 export default class Index extends Vue {
-  private timelock: TimelockHelper = new TimelockHelper(this.$ethereumProvider)
   private dataStorage: DataStorage = new DataStorage()
   private transactions: Array<any> = []
   private activeKey: any = ''
@@ -144,12 +143,12 @@ export default class Index extends Vue {
       const signature: any = item.decodedFunction.params[2].value
       const funcData: any = item.funcData
       const eta: any = item.decodedFunction.params[4].value
-
-      const account: string | null = await this.timelock.connect()
+      const timelock: TimelockHelper = new TimelockHelper(this.$ethereumProvider)
+      const account: string | null = await timelock.connect()
       if (account) {
         const txParams: Array<any> = [target, value, signature, funcData, eta]
         try {
-          const tx = await this.timelock.executeTransaction(txParams)
+          const tx = await timelock.executeTransaction(txParams)
           await this.txWait(tx)
         } catch (e) {
           this.isLoading = false
@@ -171,12 +170,12 @@ export default class Index extends Vue {
       const signature: any = item.decodedFunction.params[2].value
       const funcData: any = item.funcData
       const eta: any = item.decodedFunction.params[4].value
-
-      const account: string | null = await this.timelock.connect()
+      const timelock: TimelockHelper = new TimelockHelper(this.$ethereumProvider)
+      const account: string | null = await timelock.connect()
       if (account) {
         const txParams: Array<any> = [target, value, signature, funcData, eta]
         try {
-          const tx = await this.timelock.cancelTransaction(txParams)
+          const tx = await timelock.cancelTransaction(txParams)
           await this.txWait(tx)
         } catch (e) {
           this.isLoading = false

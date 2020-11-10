@@ -30,11 +30,11 @@ export default ({ app, store }: any) => {
       ethereumProvider.monitor({
         accountChanged: async (account: any) => {
           store.commit('SET_ACCOUNT', account);
-          callback();
+          'function' === typeof callback && callback();
         },
         chainChanged: async (chainId: any) => {
           store.commit('SET_CHAIN_ID', chainId);
-          callback();
+          'function' === typeof callback && callback();
         },
       });
 

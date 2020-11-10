@@ -210,12 +210,10 @@ export default class Index extends Vue {
     val && this.getTransactionList()
   }
   @Watch('$store.state.chainId', { immediate: false })
-  private onChangeChainId(val: string) {
-    if (val) {
-      this.networkName = this.$getNetworkName();
-      this.timelock.setAddress()
-      this.getTransactionList()
-    }
+  private onChangeChainId(val: any) {
+    this.networkName = this.$getNetworkName();
+    this.timelock.setAddress()
+    this.getTransactionList()
   }
 }
 </script>
