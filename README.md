@@ -85,5 +85,5 @@ Deploy the ./dist directory through nginx/apache
 
 ## Support Languages
 
-### [CN](./README-CN.md#Unizon%20timelock%20admin)
+### [CN](./README-CN.md)
 
