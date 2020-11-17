@@ -1,12 +1,11 @@
 # Unizon timelock admin
-Through the Timelock admin dapp interface, editing these settings below can allow for timelocked transactions via the queueTransaction, executeTransaction, and cancelTransaction functions.
+通用的timelock管理DAPP，通过修改配置文件即可实现timelock交易展示、queueTransaction、executeTransaction、cancelTransaction功能
 
-Please edit the /timelock/constants.ts file for the contract you wish to support - the original settings are designed for compound as an example
-
+修改/timelock/constants.ts文件更改配置文件（本配置以compound为例）：
 
 ```javascript
 /**
-* Timelock admin smart contract address
+* timelock管理的合约地址，本配置以compound为例
 */
 export const contract_address : any = {
   3: {
@@ -26,7 +25,7 @@ export const contract_address : any = {
 }
 
 /**
-* all abi’s that the timelock admin contract interacts with (/timelock/abi)
+* timelock管理的合约所对应的abi文件, abi文件需拷贝至/timelock/abi目录
 */
 
 export const contract_abi_file : any = {
@@ -43,7 +42,7 @@ export const contract_abi_file : any = {
 export const delay_offset = 300;
 
 /**
-* timelock contract address dictionary for mainnet and ropsten (add other chains if necessary, compound addresses * added as example)
+* timelock合约地址, 分别为mainnet和ropsten,其中主网为compound timelock 合约地址
 */
 export const timelock_address : any = {
   1: '0x6d903f6003cca6255D85CcA4D3B5E5146dC33925',
@@ -51,7 +50,7 @@ export const timelock_address : any = {
 }
 
 /**
-* Timelock admin contact requires the execution of the queueTransaction function using the specified parameters
+* timelock管理的合约需要执行queueTransaction的函数列表
 */
 
 export const queue_functions : any = {
@@ -63,27 +62,23 @@ export const queue_functions : any = {
 }
 
 ```
-## Run and deploy
+## 运行及部署
 
-### Run：
+### 运行：
 
-Execute in the project root directory
+在项目根目录执行
 
 ```shell
 yarn
 yarn dev
 ```
 
-### Deploy：
+### 部署：
 
-Execute in the project root directory
+在项目根目录执行
 
 ```shell
 yarn build
 ```
-Deploy the ./dist directory through nginx/apache
-
-## Support Languages
-
-### [CN](./README-CN.md#Unizon%20timelock%20admin)
+通过nginx/apache部署./dist目录即可
 
